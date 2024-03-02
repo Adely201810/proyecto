@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:proyecto/main.dart';
+import 'package:proyecto/Vista/vista_agregar_usuario.dart';
+import 'package:proyecto/Vista/vista_menu.dart';
 
-void main() {
+
+Future<void> main() async{
+  await Hive.initFlutter();
+  await Hive.openBox('productos');
+  await Hive.openBox('categorias');
+  await Hive.openBox('usuarios');
+  await Hive.openBox('ventas');
   runApp(const VistaInicio());
 }
 
@@ -40,7 +48,6 @@ class _IniciarSesionState extends State<IniciarSesion> {
       body: Stack(
         children: [
           Container(
-            //color: Colors.black,
             color: const Color.fromARGB(202, 176, 138, 244),
             width: double.infinity,
             height: double.infinity,
@@ -89,11 +96,6 @@ class _IniciarSesionState extends State<IniciarSesion> {
                           size: 30,
                           color: Color.fromRGBO(80, 15, 118, 0.686),
                         ),
-                        /*icon: Icon(
-                          Icons.account_circle,
-                          size: 30,
-                          color: Colors.white,
-                        ),*/
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.white)),
                         labelText: "Usuario",
@@ -125,11 +127,6 @@ class _IniciarSesionState extends State<IniciarSesion> {
                           size: 30,
                           color: Color.fromRGBO(80, 15, 118, 0.686),
                         ),
-                        /*icon: Icon(
-                          Icons.lock,
-                          size: 30,
-                          color: Colors.white,
-                        ),*/
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.white)),
                         labelText: "Contraseña",
@@ -155,7 +152,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const VentanaC()));
+                                builder: (context) => const VistaMenu()));
                       },
                       style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(horizontal: 100),
@@ -171,6 +168,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                       ))
                 ],
               ),
+               
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -204,7 +202,35 @@ class _IniciarSesionState extends State<IniciarSesion> {
                 ],
               ),
               const SizedBox(
-                height: 15,
+                height: 25,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AgregarU(listaProductoController: [],)));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(horizontal: 55),
+                          elevation: 10,
+                          side: const BorderSide(
+                              color: Color.fromRGBO(80, 15, 118, 0.686),
+                              width: 1)),
+                      child: const Text(
+                        "Registrarse",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromRGBO(80, 15, 118, 0.686)),
+                      ))
+                ],
+              ),
+              const SizedBox(
+                height: 25,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
