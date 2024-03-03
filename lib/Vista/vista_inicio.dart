@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+//import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:proyecto/Vista/vista_agregar_usuario.dart';
 import 'package:proyecto/Vista/vista_menu.dart';
 
@@ -47,7 +47,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
             height: double.infinity,
           ),
           Column(
-            
+
             children: [
               const SizedBox(height: 50),
               const Row(
@@ -205,10 +205,8 @@ class _IniciarSesionState extends State<IniciarSesion> {
                 children: [
                   ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const AgregarU(listaUsuarioController: [],)));
+                        /*Navigator.push( context,
+                            MaterialPageRoute( builder: (context) => const AgregarU(listaUsuarioController: [],)));*/
                       },
                       style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(horizontal: 55),
@@ -221,10 +219,11 @@ class _IniciarSesionState extends State<IniciarSesion> {
                         style: TextStyle(
                             fontSize: 20,
                             color: Color.fromRGBO(80, 15, 118, 0.686)),
-                      ))
+                      )
+                      )
                 ],
               ),
-              const SizedBox(
+              /*const SizedBox(
                 height: 25,
               ),
               Row(
@@ -273,7 +272,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                     ),
                   ),
                 ],
-              ),
+              ),*/
             ],
           )
         ],
