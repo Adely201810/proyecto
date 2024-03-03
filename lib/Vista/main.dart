@@ -119,9 +119,9 @@ class _VentasState extends State<Ventas> {
                       size: 30,
                     ),
                     highlightColor: const Color.fromRGBO(190, 100, 232, 0.612),
-                    //focusColor: Color.fromRGBO(52, 3, 85, 0.612),
+
                     hoverColor: const Color.fromRGBO(52, 3, 85, 0.612),
-                    //splashColor: Color.fromRGBO(52, 3, 85, 0.612),
+                    
                   ),
                 ],
               ),

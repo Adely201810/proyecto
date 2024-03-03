@@ -28,4 +28,16 @@ void agregarCategoria(
     }
   }
 
+  List obtenerNombresCategorias() {
+    var categorias = Hive.box('categorias');
+    List<String> nombresCategorias = [];
+    
+    for (var i = 0; i < categorias.length; i++) {
+      var categoria = categorias.getAt(i);
+      nombresCategorias.add(categoria['nombreCategoria'] as String);
+    }
+
+    return nombresCategorias;
+  }
+
 }

@@ -27,13 +27,13 @@ class _AgregarPState extends State<AgregarP> {
   int editingIndex = -1;
 
   @override
-  /*void initState() {
+  void initState() {
     super.initState();
     List<dynamic> categorias = agregarCategoriaController.obtenerNombresCategorias();
     if (categorias.isNotEmpty) {
       categoriaSeleccionado = categorias[0];
     }
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -183,7 +183,7 @@ class _AgregarPState extends State<AgregarP> {
                       child: DropdownButton<String>(
                         value: categoriaSeleccionado,
                       items: agregarCategoriaController
-                          .obtenerNombresCategorias()
+                          .obtenerNombresCategorias(),
                           .map((dynamic value) {
                         return DropdownMenuItem<dynamic>(
                           value: value,

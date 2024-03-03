@@ -38,13 +38,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
-          title: const Text(
-            "Iniciar Sesion",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          shadowColor: Colors.black,
-          backgroundColor: Color.fromARGB(255, 150, 30, 30)),*/
+
       body: Stack(
         children: [
           Container(
@@ -53,6 +47,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
             height: double.infinity,
           ),
           Column(
+            
             children: [
               const SizedBox(height: 50),
               const Row(
@@ -213,7 +208,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const AgregarU(listaProductoController: [],)));
+                                builder: (context) => const AgregarU(listaUsuarioController: [],)));
                       },
                       style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(horizontal: 55),

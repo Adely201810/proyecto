@@ -10,27 +10,27 @@ class AgregarUsuarioController {
   ) {
     bool isValid = true;
     if (isValid) {
-      var usuarioss = Hive.box('usuarioss');
-      usuarioss.put(nombre, {'nombre': nombre, 'apellidos': apellidos, 'idusuario': idusuario, 'contrasena':contrasena});
+      var usuarios = Hive.box('usuarios');
+      usuarios.put(nombre, {'nombre': nombre, 'apellidos': apellidos, 'idusuario': idusuario, 'contrasena':contrasena});
     }
   }
 
   void eliminarUsuario(int id) {
-    var categorias = Hive.box('categorias');
-    categorias.deleteAt(id);
+    var usuarios = Hive.box('usuarios');
+    usuarios.deleteAt(id);
   }
 
   Future<void> actualizarUsuario(
       int index, String nombre, String apellidos, String idusuario, String contrasena,) async {
-    var categorias = Hive.box('categorias');
-    var categoria = categorias.getAt(index);
-    if (categoria != null) {
-      categoria['nombre'] = nombre;
-      categoria['apellidos'] = apellidos;
-      categoria['idusuario'] = idusuario;
-      categoria['contrasena'] = contrasena;
-      await categorias.putAt(index, categoria);
+    var usuarios = Hive.box('usuarios');
+    var usuario = usuarios.getAt(index);
+    if (usuario != null) {
+    usuario['nombre'] = nombre;
+    usuario['apellidos'] = apellidos;
+    usuario['idusuario'] = idusuario;
+    usuario['contrasena'] = contrasena;
+    await usuarios.putAt(index, usuarios);
     }
-  }
+    }
 
 }

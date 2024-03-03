@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:proyecto/Modelo/modelo_categoria.dart';
+import 'package:proyecto/Modelo/modelo_usuario.dart';
 import 'package:proyecto/Modelo/modelo_producto.dart';
-//import 'package:proyecto/Modelo/modelo_venta.dart';
-import 'package:proyecto/Vista/vista_agregar_categoria.dart';
-//import 'package:proyecto/Vista/vista_agregar_producto.dart';
-//import 'package:proyecto/Vista/Vista_Inicio.dart';
-import 'package:proyecto/Vista/main.dart';
+import 'package:proyecto/Modelo/modelo_categoria.dart';
+import 'package:proyecto/Modelo/modelo_venta.dart';
 import 'package:proyecto/Vista/vista_agregar_producto.dart';
-//import 'package:proyecto/Vista/vista_agregar_usuario.dart';
+import 'package:proyecto/Vista/vista_agregar_usuario.dart';
+import 'package:proyecto/Vista/vista_agregar_categoria.dart';
+import 'package:proyecto/Vista/main.dart';
+import 'package:proyecto/Vista/vista_inicio.dart';
+
 
 void main() {
   runApp(const VistaMenu());
@@ -36,7 +37,8 @@ class Menu extends StatefulWidget {
 class _MenuState extends State<Menu> {
   final List<Producto> productos = [];
   final List<Categoria> categorias = [];
-  final List<Ventas> ventas = [];
+  final List<Venta> ventas = [];
+  final List<Usuario> usuarios = [];
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +60,8 @@ class _MenuState extends State<Menu> {
           children: [
             ElevatedButton.icon(
               onPressed: () {
+                Navigator.push( context,
+                    MaterialPageRoute( builder: (context) => AgregarU (listaUsuarioController: usuarios, )));
                 // Acción para el botón "Usuarios"
               },
               style: ElevatedButton.styleFrom(
@@ -95,7 +99,7 @@ class _MenuState extends State<Menu> {
             ElevatedButton.icon(
               onPressed: () {
                 Navigator.push( context,
-                    MaterialPageRoute( builder: (context) => AgregarC(listaCategoriaController: categorias)));
+                    MaterialPageRoute( builder: (context) => AgregarC (listaCategoriaController: categorias,)));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromRGBO(209, 103, 238, 100),
@@ -112,8 +116,8 @@ class _MenuState extends State<Menu> {
             const SizedBox(height: 20),
             ElevatedButton.icon(
               onPressed: () {
-                /*Navigator.push( context,
-                    MaterialPageRoute( builder: (context) => Venta( listaVentaController: ventas)));*/
+                Navigator.push( context,
+                    MaterialPageRoute( builder: (context) => Ventas (listaVentaController: ventas, )));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromRGBO(209, 103, 238, 100),
@@ -130,6 +134,8 @@ class _MenuState extends State<Menu> {
             const SizedBox(height: 20),
             ElevatedButton.icon(
               onPressed: () {
+                Navigator.push( context,
+                    MaterialPageRoute( builder: (context) => const VistaInicio()));
                 // Acción para el botón "Cerrar Sesión"
               },
               style: ElevatedButton.styleFrom(

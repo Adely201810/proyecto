@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto/Controlador/controller_agregar_usuario.dart';
 import 'package:proyecto/Controlador/controller_lista_usuario.dart';
-import 'package:proyecto/Modelo/modelo_producto.dart';
+import 'package:proyecto/Modelo/modelo_usuario.dart';
 import 'package:proyecto/Vista/vista_menu.dart';
-import 'package:proyecto/Vista/vista_gestionar_producto.dart';
+//import 'package:proyecto/Vista/vista_gestionar_producto.dart';
 
 /*void main() {
   runApp(const Agregar_Usuario());
@@ -23,8 +23,8 @@ class Agregar_Usuario extends StatelessWidget {
 }*/
 
 class AgregarU extends StatefulWidget {
-  final List<Producto> listaProductoController;
-  const AgregarU({Key? key, required this.listaProductoController}) : super(key: key);
+  final List<Usuario> listaUsuarioController;
+  const AgregarU({Key? key, required this.listaUsuarioController}) : super(key: key);
 
   @override
   State<AgregarU> createState() => _AgregarPState();
@@ -64,31 +64,6 @@ class _AgregarPState extends State<AgregarU> {
             children: [
               const SizedBox(
                 height: 10,
-              ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(width: 5.0)),
-                        labelText: "ID",
-                        labelStyle: TextStyle(
-                          color: Color.fromRGBO(133, 80, 133, 0.612),
-                          fontWeight: FontWeight.bold,
-                        ),
-                        prefixIcon: Icon(Icons.account_balance_wallet_outlined),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 20,
               ),
                Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -217,6 +192,7 @@ class _AgregarPState extends State<AgregarU> {
                                 nombreController.text = usuario.nombre.toString();
                                 apellidosController.text = usuario.apellidos;
                                 idusuarioController.text = usuario.idusuario;
+                                contrasenaController.text= usuario.contrasena;
                                 isEditing = true;
                                 editingIndex = index;
                               });
@@ -263,29 +239,6 @@ class _AgregarPState extends State<AgregarU> {
                 ),
                 const Text(
                   "Guardar",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(27, 2, 31, 0.782),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(width: 50,),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    // Acción para el botón "Gestionar"
-                    Navigator.push(context,
-                  MaterialPageRoute(builder: (context)=>const VentanaGP()));
-                  },
-                  icon: const Icon(Icons.edit, size: 40),
-                  color: const Color.fromRGBO(27, 2, 31, 0.782),
-                ),
-                const Text(
-                  "Editar",
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,

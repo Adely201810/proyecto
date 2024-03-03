@@ -4,10 +4,10 @@ import 'package:proyecto/Modelo/modelo_usuario.dart';
 class ListaUsuarioController {
   List<Usuario> mostrarUsuarios(){
 
-    var usuarioss = Hive.box('usuarioss');
+    var usuarios = Hive.box('usuarios');
     List<Usuario> listaUsuarios = [];
 
-    for(var usuario in usuarioss.values){
+    for(var usuario in usuarios.values){
       listaUsuarios.add(Usuario(
         nombre: usuario['nombre'],
         apellidos: usuario['apellidos'],
